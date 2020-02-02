@@ -1,0 +1,28 @@
+<h1>Create an Article</h1>
+
+<% if @article.errors.any?%>
+<h2>The following errors kept the article from being created</h2>
+<ul>
+  <% @article.errors.full_messages.each do |msg|%>
+    <li><%= msg %></li>
+  <% end %>
+</ul>
+<% end %>
+
+
+
+<%= form_with scope: :article, url: articles_path, local: true do |form| %>
+  <p>
+    <%= form.label :title %><br/>
+    <%= form.text_field :title %>
+  </p>
+  <p>
+    <%= form.label :decription %><br/>
+    <%= form.text_area :description %>
+  </p>
+  <p>
+  <%= form.submit%>
+  </p>
+<% end %>
+
+
